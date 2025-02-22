@@ -250,7 +250,7 @@ html {
 .video-container {
     margin-top: 20px;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .video-container iframe {
@@ -282,6 +282,8 @@ html {
 
 .episodes h2 {
     color: #BB1D0C;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .episode-card h3 {
