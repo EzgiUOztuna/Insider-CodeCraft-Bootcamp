@@ -13,94 +13,151 @@
 </head>
 
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="dropdown">
 
-    <nav class="navbar">
-        <div class="dropdown">
+                <button class="dropbtn">
+                    <p>M</p>
+                    <p class="dot-m">•</p>
+                    <p>E</p>
+                    <p class="dot-e">•</p>
+                    <p>N</p>
+                    <p class="dot-n">•</p>
+                    <p>U</p>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa-solid fa-bars"></i> <!-- Hamburger menü ikonu -->
+                </button>
+                <div class="dropdown-content">
+                    <a class="anasayfa" href="#anasayfa">Anasayfa</a>
+                    <a class="bolumler" href="#episodes">Bölümler</a>
+                    <a class="hakkinda" href="#footer">Hakkımda</a>
+                </div>
+            </div>
+            <div class="profile">
+                <img src="assets/Ezgi.png" alt="Profil" class="profile-img">
+            </div>
+        </nav>
+    </header>
 
-            <button class="dropbtn">
-                <p>M</p>
-                <p class="dot-m">•</p>
-                <p>E</p>
-                <p class="dot-e">•</p>
-                <p>N</p>
-                <p class="dot-n">•</p>
-                <p>U</p>
-                <i class="fa fa-caret-down"></i>
-                <i class="fa-solid fa-bars"></i> <!-- Hamburger menü ikonu -->
-            </button>
-            <div class="dropdown-content">
-                <a class="anasayfa" href="#">Anasayfa</a>
-                <a class="bolumler" href="#">Bölümler</a>
-                <a class="hakkinda" href="#">Hakkımda</a>
+    <div id="anasayfa">
+        <div class="container">
+            <div class="main-page">
+                <img src="assets/friends-afis.png" alt="Afis" class="dizi-img">
+                <div class="dizi-info">
+                    <a href="https://www.imdb.com/title/tt0108778/" target="_blank">
+                        <img src="assets/friends-logo.svg" alt="Logo" class="dizi-logo">
+                    </a>
+                    <p>Friends, New York’ta yaşayan altı yakın arkadaşın günlük hayatlarını, aşklarını ve kariyer
+                        mücadelelerini
+                        eğlenceli bir dille anlatan bir sitcom dizisidir. Rachel, Ross, Monica, Chandler, Joey ve
+                        Phoebe’nin
+                        dostlukları, kahkaha dolu anları ve duygusal bağları üzerinden ilerleyen hikâye, izleyicilere
+                        sıcak
+                        ve
+                        samimi bir atmosfer sunar. 1994-2004 yılları arasında yayımlanan dizi, esprili diyalogları ve
+                        unutulmaz
+                        karakterleriyle popüler kültürde öne
+                        hikayelerinden biridir.</p>
+
+                    <button id="favorite-btn" class="favorite-button">
+                        Favorilere Ekle <span>☕️</span>
+                    </button>
+
+
+                </div>
+            </div>
+            <div class="characters">
+                <div class="rachel">
+                    <img src="assets/RachelGreen.png" alt="Rachel Green" width="200" height="248">
+                    <h4>Rachel Green</h4>
+                    <p>Rachel, dizinin başında zengin bir ailenin şımarık kızı olarak tanıtılır, ancak zamanla bağımsız
+                        bir
+                        kadın olur. Moda sektörunde kariyer yapar ve Ross ile olan gelgitli aşkı dizinin öne
+                        hikayelerinden biridir.</p>
+                </div>
+
+                <div class="ross">
+                    <img src="assets/RossGeller.png" alt="Ross Geller" width="200" height="248">
+                    <h4>Ross Geller</h4>
+                    <p>Ross, grubun entelektüel üyesidir ve paleontolog olarak çalışır. Monica’nın abisidir ve çocukluk
+                        aşkı
+                        Rachel ile olan ilişkisi, dizinin merkezinde yer alır. Romantik ve sakar tavırlarıyla tanınır.
+                    </p>
+                </div>
+
+                <div class="chandler">
+                    <img src="assets/ChandlerBing.png" alt="Chandler Bing" width="200" height="248">
+                    <h4>Chandler Bing</h4>
+                    <p>Chandler, keskin espri anlayışı ve alaycı tavırlarıyla tanınır. İşini kimse tam olarak anlamasa
+                        da
+                        başarılı bir kariyeri vardır. Monica ile olan ilişkisi, karakterin gelişimini en çok etkileyen
+                        olaylardan biridir.</p>
+                </div>
             </div>
         </div>
-        <div class="profile">
-            <img src="assets/Ezgi.png" alt="Profil" class="profile-img">
-        </div>
-    </nav>
 
-    <div class="container">
-        <div class="main-page">
-            <img src="assets/friends-afis.png" alt="Afis" class="dizi-img">
-            <div class="dizi-info">
-                <a href="https://www.imdb.com/title/tt0108778/" target="_blank">
-                    <img src="assets/friends-logo.svg" alt="Logo" class="dizi-logo">
-                </a>
-                <p>Friends, New York’ta yaşayan altı yakın arkadaşın günlük hayatlarını, aşklarını ve kariyer
-                    mücadelelerini
-                    eğlenceli bir dille anlatan bir sitcom dizisidir. Rachel, Ross, Monica, Chandler, Joey ve Phoebe’nin
-                    dostlukları, kahkaha dolu anları ve duygusal bağları üzerinden ilerleyen hikâye, izleyicilere sıcak
-                    ve
-                    samimi bir atmosfer sunar. 1994-2004 yılları arasında yayımlanan dizi, esprili diyalogları ve
-                    unutulmaz
-                    karakterleriyle popüler kültürde önemli bir yer edinmiştir.</p>
-            </div>
-        </div>
-        <div class="characters">
-            <div class="rachel">
-                <img src="assets/RachelGreen.png" alt="Rachel Green" width="200" height="248">
-                <h4>Rachel Green</h4>
-                <p>Rachel, dizinin başında zengin bir ailenin şımarık kızı olarak tanıtılır, ancak zamanla bağımsız bir
-                    kadın olur. Moda sektörunde kariyer yapar ve Ross ile olan gelgitli aşkı dizinin öne
-                    hikayelerinden biridir.</p>
+        <div id="episodes">
+            <div class="video-container">
+                <iframe width="600" height="320" src="https://www.youtube.com/embed/TIK01MpwWGg?si=M3XLcSCVBBLuMrEq"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
-            <div class="ross">
-                <img src="assets/RossGeller.png" alt="Ross Geller" width="200" height="248">
-                <h4>Ross Geller</h4>
-                <p>Ross, grubun entelektüel üyesidir ve paleontolog olarak çalışır. Monica’nın abisidir ve çocukluk aşkı
-                    Rachel ile olan ilişkisi, dizinin merkezinde yer alır. Romantik ve sakar tavırlarıyla tanınır.</p>
-            </div>
-
-            <div class="chandler">
-                <img src="assets/ChandlerBing.png" alt="Chandler Bing" width="200" height="248">
-                <h4>Chandler Bing</h4>
-                <p>Chandler, keskin espri anlayışı ve alaycı tavırlarıyla tanınır. İşini kimse tam olarak anlamasa da
-                    başarılı bir kariyeri vardır. Monica ile olan ilişkisi, karakterin gelişimini en çok etkileyen
-                    olaylardan biridir.</p>
-            </div>
+            <section class="episodes">
+                <h2>Unutulmaz Friends Bölümleri</h2>
+                <div class="episode-list">
+                    <div class="episode-card">
+                        <h3>1. The One Where It All Began (S01E01)</h3>
+                        <p>Friends'in başlangıç bölümü! Rachel, düğününden kaçar ve Central Perk'e gelir, Monica ve
+                            arkadaşlarıyla yeni bir hayata başlar.</p>
+                    </div>
+                    <div class="episode-card">
+                        <h3>2. The One with the Prom Video (S02E14)</h3>
+                        <p>Eski bir mezuniyet videosu ortaya çıkar ve Ross'un Rachel'a olan sevgisi gözler önüne
+                            serilir. Bu
+                            bölüm, çiftin romantik anlarından biriyle hatırlanır.</p>
+                    </div>
+                    <div class="episode-card">
+                        <h3>3. The One Where No One’s Ready (S03E02)</h3>
+                        <p>Ross önemli bir etkinliğe yetişmeye çalışırken, grup üyeleri bir türlü hazırlanamaz. Joey ve
+                            Chandler'ın kıyafet savaşı unutulmazdır!</p>
+                    </div>
+                    <div class="episode-card">
+                        <h3>4. The One with Ross’s Wedding (S04E23-24)</h3>
+                        <p>Ross, Londra'daki düğününde Rachel'ı unutamaz ve büyük bir hata yapar: Gelinin yerine
+                            Rachel'ın
+                            adını söyler!</p>
+                    </div>
+                    <div class="episode-card">
+                        <h3>5. The One Where Everybody Finds Out (S05E14)</h3>
+                        <p>Phoebe, Monica ve Chandler'ın ilişkisini öğrenir ve onlara şaka yapmak için Joey ile birlikte
+                            harika bir oyun oynar.</p>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div class="video-container">
-            <iframe width="600" height="320" src="https://www.youtube.com/embed/TIK01MpwWGg?si=M3XLcSCVBBLuMrEq"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-    </div>
+        <footer class="footer">
+            <div id="footer">
+                <p>Web Tasarımı: <strong>Ezgi Uygun Öztuna</strong></p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/ezgiuygunoztuna/" target="_blank">
+                        <i class="fa-brands fa-linkedin fa-xl"></i>
+                    </a>
+                    <a href="https://github.com/EzgiUOztuna" target="_blank">
+                        <i class="fa-brands fa-github fa-xl"></i>
+                    </a>
+                    <a href="https://personal-website-psi-three-79.vercel.app/" target="_blank">
+                        <i class="fa-solid fa-globe fa-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
 
+        <script src="script.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-    <!-- <script src="script.js"></script> --> <!-- JavaScript Bağlantısı -->
 </body>
 
 </html>

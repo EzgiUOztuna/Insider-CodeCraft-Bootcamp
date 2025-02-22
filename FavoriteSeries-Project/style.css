@@ -5,21 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-
-.navbar {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    justify-content: space-between;
-    padding: .5rem 3rem;
-    background-color: #f1f1f1;
-}
-
-.profile-img {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
+    position: relative;
 }
 
 @font-face {
@@ -27,9 +13,50 @@ body {
     src: url('assets/gabriel_weiss_friends/GABRWFFR.TTF') format('truetype');
 }
 
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/central-perk-logo.png");
+    background-size: repeat;
+    background-position: center;
+    opacity: 0.4;
+    z-index: -1;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    justify-content: space-between;
+    padding: .2rem 3rem;
+    background-color: #E9D4AE;
+}
+
+.profile {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.profile-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+}
+
 /* Dropdown Button */
 .dropbtn {
-    color: black;
+    color: #0B0B09;
     font-size: 1rem;
     border: none;
     cursor: pointer;
@@ -37,6 +64,7 @@ body {
     align-items: center;
     gap: .5rem;
     font-family: 'FriendsFont', sans-serif;
+    background-color: #E9D4AE;
 }
 
 .dropbtn p {
@@ -44,10 +72,8 @@ body {
     padding: 0;
     font-family: 'FriendsFont', sans-serif;
     font-size: 1.2rem;
-    /* İkonik Friends fontuna benzer boyut */
     font-weight: normal;
     letter-spacing: 0.125rem;
-    /* Harfler arasındaki boşluğu Friends logosuna benzetmek için */
 }
 
 .dot-m {
@@ -66,34 +92,35 @@ body {
     padding-left: .3rem;
 }
 
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #E9D4AE;
     min-width: 10rem;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     z-index: 1;
+    border-radius: 0.5rem;
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 0.75rem 1rem;
     text-decoration: none;
     display: block;
 }
 
 .anasayfa:hover {
-    background-color: #bf04dc;
+    background-color: #003D2D;
 }
 
 .bolumler:hover {
-    background-color: #02b2e7;
+    background-color: #E7B958;
 }
 
 .hakkinda:hover {
-    background-color: #64c857;
+    background-color: #B91E0B;
 }
+
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -114,99 +141,217 @@ body {
 }
 
 .main-page {
-    width: 80%;
-    margin: 0 auto;
-    padding: 1rem;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 4rem;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+    box-shadow: 5px 4px 10px rgba(3, 61, 46, 0.5);
+    margin-top: 1.25rem;
+    /*background: rgba(229, 193, 156, 0.2);*/
 }
 
 .dizi-img {
-    width: 300px;
-    height: 450px;
+    width: 16rem;
+    border-radius: .6rem;
 }
 
 .dizi-logo {
     width: auto;
     height: 55px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.dizi-logo:hover {
+    transform: scale(1.1);
 }
 
 .dizi-info {
     text-align: center;
-    max-width: 500px;
+    max-width: 31.25rem;
+    color: #0B0B09;
 }
 
 .dizi-info p {
     font-size: .9rem;
     line-height: 1.6;
     margin-bottom: 1rem;
+
+}
+
+.favorite-button {
+    background-color: #E5C19C;
+    color: #0A0A0A;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'FriendsFont', sans-serif;
+    font-size: .9rem;
+    box-shadow: 5px 4px 10px rgba(229, 193, 156, 0.5)
+}
+
+.favorite-button.active {
+    background-color: #D29708;
+    color: #0A0A0A;
+    box-shadow: 5px 4px 10px rgba(210, 151, 8, 0.5)
+}
+
+#favorite-btn span {
+    margin: 0;
+    padding: 0 0 0 .5rem;
+    font-size: 1.5rem;
 }
 
 .characters {
     display: flex;
+    justify-content: center;
     padding: 2rem;
     gap: 2rem;
-    justify-content: center;
 }
 
-.rachel,
-.ross,
-.chandler {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.characters div {
+    text-align: center;
+    border-radius: .6rem;
+    padding: 1rem;
+    box-shadow: 4px 4px 8px rgba(12, 11, 5, 0.4);
+    transition: transform 0.3s ease-in-out;
+    /*background: #003e2ec9;*/
 }
 
-.characters h4 {
+.characters div:hover {
+    transform: scale(1.05);
+}
+
+.characters div img {
+    border-radius: .6rem;
+}
+
+.characters div h4 {
     margin-top: .5rem;
-    margin-bottom: 0;
+    font-size: 1.125rem;
+    color: #af2209;
 }
 
-.characters p {
+.characters div p {
     text-align: center;
     max-width: 200px;
     font-size: .8rem;
+    color: #0A0A0A;
 }
 
+/* YouTube Video Alanı */
 .video-container {
-    position: relative;
-    width: 100%;
-    max-width: 560px;
-    aspect-ratio: 16 / 9;
-
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .video-container iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    margin: 0 auto;
-
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
+.episodes {
+    text-align: center;
+    padding: 20px;
+}
+
+.episode-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.episode-card {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.43);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: left;
+}
+
+.episodes h2 {
+    color: #BB1D0C;
+}
+
+.episode-card h3 {
+    font-size: 18px;
+    color: #014130;
+}
+
+.episode-card p {
+    font-size: 14px;
+    color: #0A0A0A;
+}
+
+/* Footer Stil */
+.footer {
+    text-align: center;
+    padding: .3rem 0 1rem 0;
+    margin-top: .5rem;
+    font-size: 1rem;
+    background-color: #E9D4AE;
+}
+
+.footer .social-links {
+    margin-top: 10px;
+}
+
+.footer .social-links a {
+    color: #BB1D0C;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer .fa-linkedin {
+    color: #003e2c;
+}
+
+.footer .fa-linkedin:hover {
+    color: #0A0A0A;
+}
+
+.footer .fa-github {
+    color: #BB1D0C;
+}
+
+.footer .fa-github:hover {
+    color: #0A0A0A;
+}
+
+.footer .fa-globe {
+    color: #DB9C0C;
+}
+
+.footer .fa-globe:hover {
+    color: #0A0A0A;
+}
+
 
 
 /* Ekran genişliği 768px veya daha küçükse (mobil) hamburger menüyü göster */
 @media (max-width: 768px) {
 
-    body,
-    html {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
     .navbar {
         padding: .5rem 2rem;
     }
 
-
     .dropbtn .fa-bars {
         display: inline-block;
         /* Mobilde göster */
+        color: #0A0A0A;
     }
 
     /* Desktop için görünen "Menu" yazısını ve aşağı ok ikonunu gizle */
@@ -216,7 +361,7 @@ body {
     }
 
     .main-page {
-        padding: 3rem;
+        padding: 1.5rem;
         gap: 2rem;
         flex-wrap: wrap;
     }
@@ -226,8 +371,9 @@ body {
         align-items: center;
     }
 
-    .video-container {
-        max-width: 100%;
+    .video-container iframe {
+        width: 100%;
+        height: 16rem;
     }
 
 }
