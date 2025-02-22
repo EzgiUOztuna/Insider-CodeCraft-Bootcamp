@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff6f6;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content:
+        center;
+    align-items: center;
+    height: 100vh;
+}
+
+.ex-card:hover .card {
+    transform: rotateY(180deg) translateX(100%);
+}
+
+.ex-card {
+    perspective: 300px;
+}
+
+.card {
+    transition: 0.7s;
+    transform-style: preserve-3d;
+    transform-origin: right;
+    position: relative;
+}
+
+.credit-card,
+.back-credit-card {
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.back-credit-card {
+    transform: rotateY(180deg) translateZ(1px);
+}
+
+.credit-card {
+    width: 350px;
+    height: 200px;
+    background: linear-gradient(150deg, #a39999, #000000);
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+}
+
+h1 {
+    font-size: 15px;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 200;
+}
+
+.credit-card:hover {
+    transform: scale(1.05);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.chip {
+    width: 40px;
+    filter: brightness(0.9);
+}
+
+.brand {
+    width: 45px;
+}
+
+.card-number {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 200;
+    font-size: 15px;
+    letter-spacing: 9px;
+    text-align: justify;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.card-holder p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    color: #ccc;
+}
+
+.expiry {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.expiry p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    color: #ccc;
+}
+
+.expiry span {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 200;
+    font-size: 7px;
+    width: 5px;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.back-credit-card {
+    width: 350px;
+    height: 200px;
+    background: linear-gradient(150deg, #a39999, #000000);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+}
+
+.top-info {
+    font-family: 'Arial', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    margin: 10px 0 5px 25px;
+    color: #ccc;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.box {
+    border: 1px solid black;
+    width: 100%;
+    height: 40px;
+    background: black
+}
+
+.ccv {
+    border: 1px solid white;
+    width: 95%;
+    height: 30px;
+    background: white;
+}
+
+.ccv p {
+    color: black;
+    font-family: 'Arial', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    padding: 10px;
+    text-align: right;
+}
+
+.bottom-info {
+    font-family: 'Arial', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    color: #ccc;
+    margin: 10px 15px;
+    text-align: justify;
+    width: 90%;
+}
