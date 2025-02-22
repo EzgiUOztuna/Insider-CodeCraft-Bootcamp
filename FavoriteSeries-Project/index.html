@@ -7,6 +7,9 @@
     <title>Favori Dizim</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,14 +18,20 @@
         <div class="dropdown">
 
             <button class="dropbtn">
-                <p>Menu</p>
+                <p>M</p>
+                <p class="dot-m">•</p>
+                <p>E</p>
+                <p class="dot-e">•</p>
+                <p>N</p>
+                <p class="dot-n">•</p>
+                <p>U</p>
                 <i class="fa fa-caret-down"></i>
                 <i class="fa-solid fa-bars"></i> <!-- Hamburger menü ikonu -->
             </button>
             <div class="dropdown-content">
-                <a href="#">Anasayfa</a>
-                <a href="#">Bölümler</a>
-                <a href="#">Hakkımda</a>
+                <a class="anasayfa" href="#">Anasayfa</a>
+                <a class="bolumler" href="#">Bölümler</a>
+                <a class="hakkinda" href="#">Hakkımda</a>
             </div>
         </div>
         <div class="profile">
@@ -30,11 +39,54 @@
         </div>
     </nav>
 
-    <div class="main-page">
-        <img src="assets/friends-afis.png" alt="Afis" class="dizi-img">
-        <img src="assets/friends-logo.svg" alt="Logo" class="dizi-logo">
+    <div class="container">
+        <div class="main-page">
+            <img src="assets/friends-afis.png" alt="Afis" class="dizi-img">
+            <div class="dizi-info">
+                <a href="https://www.imdb.com/title/tt0108778/" target="_blank">
+                    <img src="assets/friends-logo.svg" alt="Logo" class="dizi-logo">
+                </a>
+                <p>Friends, New York’ta yaşayan altı yakın arkadaşın günlük hayatlarını, aşklarını ve kariyer
+                    mücadelelerini
+                    eğlenceli bir dille anlatan bir sitcom dizisidir. Rachel, Ross, Monica, Chandler, Joey ve Phoebe’nin
+                    dostlukları, kahkaha dolu anları ve duygusal bağları üzerinden ilerleyen hikâye, izleyicilere sıcak
+                    ve
+                    samimi bir atmosfer sunar. 1994-2004 yılları arasında yayımlanan dizi, esprili diyalogları ve
+                    unutulmaz
+                    karakterleriyle popüler kültürde önemli bir yer edinmiştir.</p>
+            </div>
+        </div>
+        <div class="characters">
+            <div class="rachel">
+                <img src="assets/RachelGreen.png" alt="Rachel Green" width="200" height="248">
+                <h4>Rachel Green</h4>
+                <p>Rachel, dizinin başında zengin bir ailenin şımarık kızı olarak tanıtılır, ancak zamanla bağımsız bir
+                    kadın olur. Moda sektörunde kariyer yapar ve Ross ile olan gelgitli aşkı dizinin öne
+                    hikayelerinden biridir.</p>
+            </div>
 
+            <div class="ross">
+                <img src="assets/RossGeller.png" alt="Ross Geller" width="200" height="248">
+                <h4>Ross Geller</h4>
+                <p>Ross, grubun entelektüel üyesidir ve paleontolog olarak çalışır. Monica’nın abisidir ve çocukluk aşkı
+                    Rachel ile olan ilişkisi, dizinin merkezinde yer alır. Romantik ve sakar tavırlarıyla tanınır.</p>
+            </div>
 
+            <div class="chandler">
+                <img src="assets/ChandlerBing.png" alt="Chandler Bing" width="200" height="248">
+                <h4>Chandler Bing</h4>
+                <p>Chandler, keskin espri anlayışı ve alaycı tavırlarıyla tanınır. İşini kimse tam olarak anlamasa da
+                    başarılı bir kariyeri vardır. Monica ile olan ilişkisi, karakterin gelişimini en çok etkileyen
+                    olaylardan biridir.</p>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <iframe width="600" height="320" src="https://www.youtube.com/embed/TIK01MpwWGg?si=M3XLcSCVBBLuMrEq"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </div>
 
 

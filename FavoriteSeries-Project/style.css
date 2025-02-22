@@ -1,37 +1,69 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'FriendsFont', sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .navbar {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    padding: 15px 20px;
+    justify-content: space-between;
+    padding: .5rem 3rem;
+    background-color: #f1f1f1;
 }
 
 .profile-img {
-    width: 50px;
-    height: 50px;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
+}
+
+@font-face {
+    font-family: 'FriendsFont';
+    src: url('assets/gabriel_weiss_friends/GABRWFFR.TTF') format('truetype');
 }
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
+    color: black;
+    font-size: 1rem;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: .5rem;
+    font-family: 'FriendsFont', sans-serif;
 }
 
 .dropbtn p {
     margin: 0;
     padding: 0;
+    font-family: 'FriendsFont', sans-serif;
+    font-size: 1.2rem;
+    /* İkonik Friends fontuna benzer boyut */
+    font-weight: normal;
+    letter-spacing: 0.125rem;
+    /* Harfler arasındaki boşluğu Friends logosuna benzetmek için */
+}
+
+.dot-m {
+    color: red;
+}
+
+.dot-e {
+    color: yellow;
+}
+
+.dot-n {
+    color: green;
+}
+
+.dropbtn .fa-caret-down {
+    padding-left: .3rem;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -39,12 +71,11 @@ body {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: 10rem;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -52,19 +83,20 @@ body {
     display: block;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #ddd;
+.anasayfa:hover {
+    background-color: #bf04dc;
 }
 
-/* Show the dropdown menu on hover */
+.bolumler:hover {
+    background-color: #02b2e7;
+}
+
+.hakkinda:hover {
+    background-color: #64c857;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
 }
 
 /* Hamburger menüyü sadece mobilde göster, desktopta gizle */
@@ -73,11 +105,22 @@ body {
     /* Varsayılan olarak gizle (desktop için) */
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .main-page {
-    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
 }
 
 .dizi-img {
@@ -90,11 +133,77 @@ body {
     height: 55px;
 }
 
+.dizi-info {
+    text-align: center;
+    max-width: 500px;
+}
 
+.dizi-info p {
+    font-size: .9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.characters {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.rachel,
+.ross,
+.chandler {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.characters h4 {
+    margin-top: .5rem;
+    margin-bottom: 0;
+}
+
+.characters p {
+    text-align: center;
+    max-width: 200px;
+    font-size: .8rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+
+}
+
+.video-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+
+}
 
 
 /* Ekran genişliği 768px veya daha küçükse (mobil) hamburger menüyü göster */
 @media (max-width: 768px) {
+
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .navbar {
+        padding: .5rem 2rem;
+    }
+
+
     .dropbtn .fa-bars {
         display: inline-block;
         /* Mobilde göster */
@@ -105,4 +214,20 @@ body {
     .dropbtn p {
         display: none;
     }
+
+    .main-page {
+        padding: 3rem;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .characters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-container {
+        max-width: 100%;
+    }
+
 }
