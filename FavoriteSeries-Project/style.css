@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropbtn p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Hamburger menüyü sadece mobilde göster, desktopta gizle */
+.dropbtn .fa-bars {
+    display: none;
+    /* Varsayılan olarak gizle (desktop için) */
+}
+
+.main-page {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dizi-img {
+    width: 300px;
+    height: 450px;
+}
+
+.dizi-logo {
+    width: auto;
+    height: 55px;
+}
+
+
+
+
+/* Ekran genişliği 768px veya daha küçükse (mobil) hamburger menüyü göster */
+@media (max-width: 768px) {
+    .dropbtn .fa-bars {
+        display: inline-block;
+        /* Mobilde göster */
+    }
+
+    /* Desktop için görünen "Menu" yazısını ve aşağı ok ikonunu gizle */
+    .dropbtn .fa-caret-down,
+    .dropbtn p {
+        display: none;
+    }
+}
