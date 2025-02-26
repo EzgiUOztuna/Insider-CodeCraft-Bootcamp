@@ -1,13 +1,12 @@
-/*
+
 let name = prompt("What is your name?");
 let age = prompt("What is your age?");
 let job = prompt("What is your job?");
 console.log("User Information: {name: " + name + ", age: " + age + ", job: " + job + "}");
-*/
+
 
 
 let basket = [];
-
 while (true) {
     let choice = prompt("To add product write 'Add', to list products write 'List', to remove write 'Remove', to exit write 'Exit'").trim().toLowerCase();
 
