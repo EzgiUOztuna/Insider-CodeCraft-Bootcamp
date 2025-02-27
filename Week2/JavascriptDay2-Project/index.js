@@ -1,18 +1,18 @@
 function longestCollaztSequence(n) {
-    let longestSequence = 1;
-    let longestValue = 1;
+    let longestSequence = 1; //Şu ana kadar bulunan en uzun Collatz dizisinin uzunluğunu saklar
+    let longestValue = 1; //En uzun Collatz dizisini başlatan sayıyı saklar. 
 
     for (let num = 2; num < n; num++) {
-        let numbersOfTerms = 1;
-        let currentTerm = num;
+        let numbersOfTerms = 1; //Mevcut Collatz dizisinin kaç eleman içerdiğini sayar.
+        let currentTerm = num; // Şu an üzerinde çalıştığımız sayıyı takip eder.
 
-        while (currentTerm != 1) {
+        while (currentTerm != 1) { //currentTerm değeri 1 olana kadar çalışır.
             if (currentTerm % 2 == 0) {
                 currentTerm = currentTerm /= 2;
             } else {
                 currentTerm = (3 * currentTerm) + 1;
             }
-            numbersOfTerms++;
+            numbersOfTerms++; //Her adımda numbersOfTerms değişkenini 1 artırıyoruz çünkü bir terim eklenmiş oluyor.
         }
 
         if (numbersOfTerms > longestSequence) {
@@ -24,4 +24,4 @@ function longestCollaztSequence(n) {
     return longestValue;
 }
 
-console.log("Result is " + longestCollaztSequence(20));
+console.log("Result is " + longestCollaztSequence(1000000));
