@@ -8,8 +8,17 @@
 </head>
 
 <body>
-    let timeLeft = prompt("Specify the desired countdown time");
+    <h2>Geri Sayım Uygulaması</h2>
+    <label for="timeInput">Süre (saniye): </label>
+    <input type="number" id="timeInput" min="1" value="10">
 
+    <br><br>
+
+    <button id="start">Start</button>
+    <button id="reset">Reset</button>
+    <p id="countdownDisplay">Süreyi girin ve başlatın.</p>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
