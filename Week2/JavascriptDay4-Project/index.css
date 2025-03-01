@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-color: #d5e8d9;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.login-container {
+    width: 100%;
+    background: rgb(209, 233, 234);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px #0a3e0e1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+    line-height: 2rem;
+    width: 18.75rem;
+    padding: 1.875rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.priority {
+    margin-bottom: 0;
+}
+
+.checkbox-container {
+    display: flex;
+    gap: .5rem;
+    margin: 1rem 0;
+}
+
+button {
+    width: 30%;
+    padding: .4rem;
+    cursor: pointer;
+}
+
+textarea {
+    height: 4rem;
+    resize: none;
+}
+
+#gorevListesi {
+    margin-top: 2rem;
+    max-height: 25rem;
+    overflow-y: auto;
+    border-radius: .5rem;
+    padding: 1rem;
+    background-color: #ffffffb8;
+    box-shadow: 0 0 10px 10px #0a3e0e1a;
+    list-style-type: none;
+}
+
+#gorevListesi li {
+    border-radius: .5rem;
+    margin-bottom: .5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.tamamla,
+.sil {
+    margin-top: .5rem;
+    border-radius: .5rem;
+    border: solid 1px #ddd;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerçek Zamanlı Görev Yönetim Uygulaması</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Görev</h2>
+        <form id="gorevForm" action="/action_page.php" method="post">
+            <div class="form-group">
+                <label for="baslik">Başlık*</label>
+                <input type="text" name="baslik" id="baslik">
+
+                <label for="aciklama">Açıklama</label>
+                <textarea name="aciklama" id="aciklama" maxlength="500"></textarea>
+                <!-- <p id="charCount">250 karakter kaldı</p> -->
+
+                <div class="radio-buttons">
+                    <p class="priority">Öncelik*</p>
+
+                    <input type="radio" name="dusuk" id="dusuk">
+                    <label for="dusuk">Düşük</label>
+                    <br />
+
+                    <input type="radio" name="orta" id="orta">
+                    <label for="orta">Orta</label>
+                    <br />
+
+                    <input type="radio" name="yuksek" id="yuksek">
+                    <label for="yuksek">Yüksek</label>
+                </div>
+                <div class="checkbox-container">
+                    <label for="check">Tamamlandı mı?</label>
+                    <input type="checkbox" name="check" id="check">
+                </div>
+                <button id="button">Ekle</button>
+            </div>
+        </form>
+        <ul id="gorevListesi"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
