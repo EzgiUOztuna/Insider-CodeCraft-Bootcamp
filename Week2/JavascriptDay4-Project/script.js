@@ -34,12 +34,7 @@ function gorevEkle(event) {
         if (!baslik) throw new Error("Başlık alanı boş bırakılamaz!");
         if (!oncelik) throw new Error("Lütfen bir öncelik seçiniz!");
 
-        let gorev = {
-            baslik: baslik,
-            aciklama: aciklama,
-            oncelik: oncelik,
-            tamamlandiMi: tamamlandi,
-        }
+        let gorev = { baslik, aciklama, oncelik, tamamlandi };
 
         gorevListesi.push(gorev);
         console.log("Görev eklendi: " + JSON.stringify(gorev));
@@ -57,7 +52,6 @@ function gorevEkle(event) {
 
         document.getElementById("gorevListesi").appendChild(yeniGorev);
         document.getElementById("gorevForm").reset();
-        listeyiGuncelle();
     } catch (e) {
         alert(e.message);
     }
@@ -65,23 +59,30 @@ function gorevEkle(event) {
 
 function gorevIslemleri(event) {
     event.stopPropagation(); // Olayın gereksiz üst elemanlara gitmesini engelleme.
+    const liElement = event.target.parentElement;
+    const baslik = liElement.querySelector("span").textContent.trim();
 
     if (event.target.classList.contains("tamamla")) {
-        event.target.parentElement.style.backgroundColor = "green";
+        liElement.style.backgroundColor = "green";
+
+        let gorev = gorevListesi.find(g => g.baslik === baslik);
+        if (gorev) gorev.tamamlandi = true;
     }
 
     if (event.target.classList.contains("sil")) {
-        event.target.parentElement.remove();
+        liElement.remove();
+        gorevListesi = gorevListesi.filter(g => g.baslik !== baslik);
     }
 }
 
 //Tamamlanan görevleri filtreleme
 document.getElementById("filtreButton").addEventListener("click", tamamlananlariFiltrele);
 function tamamlananlariFiltrele() {
+    document.getElementById("gorevListesi").innerHTML = ""; //eski görevleri sil.
 
     let gosterilecekGorevler = gorevListesi;
-    const tamamlananGorevler = gosterilecekGorevler.filter(gorev => gorev.tamamlandiMi);
-    console.log("Tamamlanan Görevler: " + tamamlananGorevler);
+    const tamamlananGorevler = gosterilecekGorevler.filter(gorev => gorev.tamamlandi);
+    console.log("Tamamlanan Görevler: " + JSON.stringify(tamamlananGorevler));
 }
 
 
