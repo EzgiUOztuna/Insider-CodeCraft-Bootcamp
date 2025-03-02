@@ -1,15 +1,11 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Gabriela, sans-serif;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     margin: 0;
     background-color: #d5e8d9;
     height: 100vh;
-}
-
-h2 {
-    margin-top: 0;
 }
 
 .login-container {
@@ -27,6 +23,12 @@ h2 {
     margin: 2rem 0;
 }
 
+h2 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -34,7 +36,14 @@ h2 {
 
 label {
     font-size: 1rem;
+    font-weight: 600;
+}
 
+#baslik,
+#aciklama,
+#filtreButton,
+#siralaButton {
+    font-family: Gabriela, sans-serif;
 }
 
 label[for="aciklama"] {
@@ -53,14 +62,16 @@ textarea {
     margin-left: auto;
 }
 
+.radio-buttons label {
+    font-size: .8rem;
+    font-weight: 400;
+}
+
 .priority {
     margin-bottom: 0;
     margin-top: 0;
     font-size: 1rem;
-}
-
-.radio-buttons label {
-    font-size: .8rem;
+    font-weight: 600;
 }
 
 .checkbox-container {
@@ -81,6 +92,7 @@ textarea {
     border-color: #EFEFEF;
     border-radius: .5rem;
     padding: .8rem;
+    font-family: Gabriela, sans-serif;
 }
 
 #button:hover {
@@ -99,7 +111,7 @@ textarea {
     border: none;
     background-color: transparent;
     color: gray;
-    font-size: .75rem;
+    font-size: .7rem;
     transition: color 0.3s ease;
     text-align: start;
     cursor: pointer;
@@ -137,6 +149,7 @@ textarea {
     padding: .4rem;
     margin-bottom: .5rem;
     cursor: pointer;
+    font-family: Gabriela, sans-serif;
 }
 
 .yeni-gorev.tamamlandi {
