@@ -32,26 +32,82 @@ h2 {
     flex-direction: column;
 }
 
-.priority {
-    margin-bottom: 0;
+label {
+    font-size: 1rem;
+
 }
 
-.checkbox-container {
-    display: flex;
-    gap: .5rem;
-    margin: 1rem 0;
-}
-
-#button {
-    width: 30%;
-    padding: .4rem;
-    margin-bottom: .5rem;
-    cursor: pointer;
+label[for="aciklama"] {
+    margin-top: .5rem;
 }
 
 textarea {
     height: 4rem;
     resize: none;
+}
+
+#charCount {
+    margin: 0;
+    color: #757575;
+    font-size: x-small;
+    margin-left: auto;
+}
+
+.priority {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+.radio-buttons label {
+    font-size: .8rem;
+}
+
+.checkbox-container {
+    display: flex;
+    gap: .5rem;
+    margin: 1rem 0 .5rem 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+}
+
+#button {
+    width: 30%;
+    cursor: pointer;
+    border-color: #EFEFEF;
+    border-radius: .5rem;
+    padding: .8rem;
+}
+
+#button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.filter-sort-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+#filtreButton,
+#siralaButton {
+    border: none;
+    background-color: transparent;
+    color: gray;
+    font-size: .75rem;
+    transition: color 0.3s ease;
+    text-align: start;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+        color: #333;
+    }
 }
 
 #gorevListesi {
@@ -81,4 +137,8 @@ textarea {
     padding: .4rem;
     margin-bottom: .5rem;
     cursor: pointer;
+}
+
+.yeni-gorev.tamamlandi {
+    background-color: green;
 }

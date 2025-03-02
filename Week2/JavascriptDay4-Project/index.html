@@ -17,8 +17,8 @@
                 <input type="text" name="baslik" id="baslik">
 
                 <label for="aciklama">Açıklama</label>
-                <textarea name="aciklama" id="aciklama" maxlength="500"></textarea>
-                <!-- <p id="charCount">250 karakter kaldı</p> -->
+                <textarea name="aciklama" id="aciklama" maxlength="250"></textarea>
+                <p id="charCount">250 karakter kaldı</p>
 
                 <div class="radio-buttons">
                     <p class="priority">Öncelik*</p>
@@ -38,11 +38,16 @@
                     <label for="check">Tamamlandı mı?</label>
                     <input type="checkbox" name="check" id="check">
                 </div>
-                <button id="button">Ekle</button>
+                <div class="buttons">
+                    <button id="button">Ekle</button>
+                    <div class="filter-sort-buttons">
+                        <button id="filtreButton" type="button">Sadece Tamamlananları Göster</button>
+                        <button id="siralaButton" type="button">Önceliğe Göre Sırala (Düşük → Yüksek)</button>
+                    </div>
+                </div>
             </div>
         </form>
-        <button id="filtreButton">Sadece Tamamlananları Göster</button>
-        <button id="siralaButton">Önceliğe Göre Sırala (Düşük → Yüksek)</button>
+
         <ul id="gorevListesi"></ul>
     </div>
     <script src="script.js"></script>
