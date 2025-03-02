@@ -46,13 +46,21 @@ label {
     font-family: Gabriela, sans-serif;
 }
 
+
 label[for="aciklama"] {
     margin-top: .5rem;
+}
+
+input[type="text"] {
+    border: 1px solid #8e8d8d;
+    border-radius: .3rem;
 }
 
 textarea {
     height: 4rem;
     resize: none;
+    border-color: #8e8d8d;
+    border-radius: .3rem;
 }
 
 #charCount {
