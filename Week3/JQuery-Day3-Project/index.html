@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form jQuery</title>
+    <style>
+        body {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 0;
+            background-color: #d5e8d9;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            background: rgb(209, 233, 234);
+            border-radius: 10px;
+            box-shadow: 0 0 10px 10px #0a3e0e1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: space-around;
+            line-height: 2rem;
+            width: 18.75rem;
+            padding: 1.875rem;
+            margin: 2rem 0;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: .5rem;
+            text-align: center;
+        }
+
+        #basvuruForm {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        input {
+            border: 1px solid #8e8d8d;
+            border-radius: .3rem;
+            padding: .5rem;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>İş Başvuru Formu</h2>
+        <button id="toggle-btn">Başvuru Yap</button>
+
+        <form id="basvuruForm">
+            <label for="ad-soyad">Ad-Soyad: </label>
+            <input type="text" name="ad-soyad" id="ad-soyad">
+
+            <label for="e-posta">E-posta: </label>
+            <input type="email" name="e-posta" id="e-posta">
+
+            <label for="telefon">Telefon Numarası: </label>
+            <input type="tel" name="telefon" id="telefon">
+
+            <label for="pozisyon">Pozisyon: </label>
+            <input type="text" name="pozisyon" id="pozisyon">
+
+            <button type="submit" id="button">Gönder</button>
+        </form>
+    </div>
+
+</body>
+
+<script>
+    /*jQuery kodları gelecek.*/
+    $(document).ready(function () {
+        // İşlemlerinizi burada yazacağınız yer.
+    });
+</script>
+
+</html>
