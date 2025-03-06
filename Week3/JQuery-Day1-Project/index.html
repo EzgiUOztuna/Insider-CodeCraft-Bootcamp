@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Görev Yönetimi jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+
+            const init = () => {
+                buildHtml();
+                buildCss();
+                setEvents();
+            };
+
+            const buildHtml = () => {
+                const html = `
+                <div class="login-container">
+                    <h2>Görev</h2>
+                    <form id="gorevForm">
+                        <div class="form-group">
+                            <label for="baslik">Başlık*</label>
+                            <input type="text" name="baslik" id="baslik">
+                            <label for="aciklama">Açıklama</label>
+                            <textarea name="aciklama" id="aciklama" maxlength="250"></textarea>
+                            <p id="charCount">250 karakter kaldı</p>
+                            <div class="checkbox-container">
+                                <label for="check">Tamamlandı mı?</label>
+                                <input type="checkbox" name="check" id="check">
+                            </div>
+                            <button type="submit" id="button">Ekle</button>
+                        </div>
+                    </form>
+                    <ul id="gorevListesi"></ul>
+                </div>
+            `;
+
+                $("body").append(html);
+            };
+
+            const buildCss = () => {
+                $('<style>').html(`
+                    body {
+                        font-family: Gabriela, sans-serif;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        margin: 0;
+                        background-color: #d5e8d9;
+                        height: 100vh;
+                    }
+
+                    .login-container {
+                        width: 100%;
+                        background: rgb(209, 233, 234);
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px 10px #0a3e0e1a;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: space-around;
+                        line-height: 2rem;
+                        width: 18.75rem;
+                        padding: 1.875rem;
+                        margin: 2rem 0;
+                    }
+
+                    h2 {
+                        margin-top: 0;
+                        margin-bottom: .5rem;
+                        text-align: center;
+                    }
+
+                    .form-group {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    label {
+                        font-size: 1rem;
+                        font-weight: 600;
+                    }
+
+                    #baslik,
+                    #aciklama,
+                    #filtreButton,
+                    #siralaButton {
+                        font-family: Gabriela, sans-serif;
+                    }
+
+
+                    label[for="aciklama"] {
+                        margin-top: .5rem;
+                    }
+
+                    input[type="text"] {
+                        border: 1px solid #8e8d8d;
+                        border-radius: .3rem;
+                    }
+
+                    textarea {
+                        height: 4rem;
+                        resize: none;
+                        border-color: #8e8d8d;
+                        border-radius: .3rem;
+                    }
+
+                    #charCount {
+                        margin: 0;
+                        color: #757575;
+                        font-size: x-small;
+                        margin-left: auto;
+                    }
+
+                    .checkbox-container {
+                        display: flex;
+                        gap: .5rem;
+                        margin: 1rem 0 .5rem 0;
+                    }
+
+                    .buttons {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        align-items: flex-start;
+                    }
+
+                    #button {
+                        width: 30%;
+                        cursor: pointer;
+                        border-color: #EFEFEF;
+                        border-radius: .5rem;
+                        padding: .8rem;
+                        font-family: Gabriela, sans-serif;
+                    }
+
+                    #button:hover {
+                        background-color: #333;
+                        color: #fff;
+                    }
+                        
+                    #gorevListesi {
+                        margin-top: 2rem;
+                        max-height: 25rem;
+                        overflow-y: auto;
+                        border-radius: .5rem;
+                        padding: 1rem;
+                        background-color: #ffffffb8;
+                        box-shadow: 0 0 10px 10px #0a3e0e1a;
+                        list-style-type: none;
+                    }
+
+                    #gorevListesi li {
+                        border-radius: .5rem;
+                        margin-bottom: .5rem;
+                        padding: 1rem;
+                        border-bottom: 1px solid #ddd;
+                    }
+
+                    .completed {
+                        text-decoration: line-through;
+                        color: gray;
+                        opacity: 0.7;
+                    }
+                    `).appendTo('head');
+            };
+
+            const setEvents = () => {
+                $("#button").on("click", function (e) {
+                    e.preventDefault();
+
+                    let baslik = $("#baslik").val().trim();
+                    let aciklama = $("#aciklama").val().trim();
+                    let tamamlandiMi = $("#check").prop("checked");
+
+                    if (baslik === "") {
+                        alert("Başlık alanı boş olamaz!");
+                        return;
+                    }
+
+                    let gorevItem = `
+                        <li class="${tamamlandiMi ? "completed" : ""}">
+                            <span class="task-text">${baslik} </br> ${aciklama} </br></span>
+                            <button class="sil-btn">Sil</button>
+                        </li>
+                    `;
+
+                    $("#gorevListesi").append(gorevItem);
+
+                    $("#baslik").val("");
+                    $("#aciklama").val("");
+                    $("#check").prop("checked", false);
+                });
+
+                $(document).on("click", ".sil-btn", function () {
+                    $(this).closest("li").remove();
+                });
+
+                $(document).on("click", "li", function () {
+                    $(this).toggleClass("completed");
+                });
+
+                $("#aciklama").on("input", function () {
+                    const kalan = 250 - $(this).val().length;
+                    $("#charCount").text(`${kalan} karakter kaldı`);
+                });
+            };
+
+            init();
+        });
+    </script>
+
+</body>
+
+</html>
