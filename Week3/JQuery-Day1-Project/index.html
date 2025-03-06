@@ -186,6 +186,7 @@
                         <li class="${tamamlandiMi ? "completed" : ""}">
                             <span class="task-text">${baslik} </br> ${aciklama} </br></span>
                             <button class="sil-btn">Sil</button>
+                            <button class="tamamla-btn">Tamamla</button>
                         </li>
                     `;
 
@@ -197,10 +198,16 @@
                 });
 
                 $(document).on("click", ".sil-btn", function () {
-                    $(this).closest("li").remove();
+                    $(this).closest("li").slideUp(700, function () {
+                        $(this).remove();
+                    });
                 });
 
-                $(document).on("click", "li", function () {
+                $(document).on("click", ".tamamla-btn", function () {
+                    $(this).siblings(".task-text").toggleClass("completed");
+                });
+
+                $("li").on("click", function () {
                     $(this).toggleClass("completed");
                 });
 
