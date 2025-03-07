@@ -5,97 +5,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Form jQuery</title>
-    <style>
-        body {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            margin: 0;
-            background-color: #d5e8d9;
-            height: 100vh;
-        }
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery Validation Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <!-- jQuery UI CSS (Datepicker) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <!-- jQuery UI JavaScript (Datepicker) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Masked Input Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
-        .container {
-            width: 100%;
-            background: rgb(209, 233, 234);
-            border-radius: 10px;
-            box-shadow: 0 0 10px 10px #0a3e0e1a;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: space-around;
-            line-height: 2rem;
-            width: 18.75rem;
-            padding: 1.875rem;
-            margin: 2rem 0;
-        }
 
-        h2 {
-            margin-top: 0;
-            margin-bottom: .5rem;
-            text-align: center;
-        }
-
-        #basvuruForm {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        input {
-            border: 1px solid #8e8d8d;
-            border-radius: .3rem;
-            padding: .5rem;
-            margin-bottom: 1rem;
-        }
-
-        button {
-            font-size: 1rem;
-            font-weight: 600;
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: background-color.3s ease-in-out;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        background-color: #d5e8d9;
+        height: 100vh;
+    }
+
+    .container {
+        background: rgb(209, 233, 234);
+        border-radius: 10px;
+        box-shadow: 0 0 10px 10px #0a3e0e1a;
+        display: none;
+        line-height: 2rem;
+        width: 18.75rem;
+        padding: 1.875rem;
+        margin: 2rem 0;
+    }
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    label {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    input {
+        border: 1px solid #8e8d8d;
+        border-radius: .3rem;
+        padding: .5rem;
+        margin-bottom: 1rem;
+        width: 95%;
+    }
+
+    button {
+        font-size: 1rem;
+        font-weight: 600;
+        background-color: #333;
+        color: #fff;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background-color .3s ease-in-out;
+    }
+
+    i.fa-solid.fa-xmark {
+        margin-left: 18rem;
+        cursor: pointer;
+    }
+
+    .error {
+        color: red;
+        font-size: 1rem;
+    }
+
+    #success-message {
+        display: none;
+        color: green;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+    }
+</style>
+
 <body>
+    <button id="apply-btn">Başvuru Yap</button>
+
     <div class="container">
+        <i class="fa-solid fa-xmark"></i>
         <h2>İş Başvuru Formu</h2>
-        <button id="toggle-btn">Başvuru Yap</button>
 
-        <form id="basvuruForm">
-            <label for="ad-soyad">Ad-Soyad: </label>
-            <input type="text" name="ad-soyad" id="ad-soyad">
+        <form id="application-form">
+            <label for="name">Ad-Soyad: </label>
+            <input type="text" name="name" id="name"></br>
 
-            <label for="e-posta">E-posta: </label>
-            <input type="email" name="e-posta" id="e-posta">
+            <label for="email">E-posta: </label>
+            <input type="email" name="email" id="email"></br>
 
-            <label for="telefon">Telefon Numarası: </label>
-            <input type="tel" name="telefon" id="telefon">
+            <label for="phone">Telefon Numarası: </label>
+            <input type="tel" name="phone" id="phone"></br>
 
             <label for="pozisyon">Pozisyon: </label>
-            <input type="text" name="pozisyon" id="pozisyon">
+            <input type="text" name="pozisyon" id="pozisyon"></br>
 
-            <button type="submit" id="button">Gönder</button>
+            <label for="date">Başvuru Tarihi: </label>
+            <input type="text" name="date" id="date"></br>
+
+
+            <button type="submit" id="submit-btn">Gönder</button>
         </form>
+        <div id="success-message">
+            İş başvurunuz başarıyla gönderildi!
+        </div>
     </div>
 
 </body>
 
 <script>
-    /*jQuery kodları gelecek.*/
     $(document).ready(function () {
-        // İşlemlerinizi burada yazacağınız yer.
+        $("#apply-btn").on("click", function () {
+            $(".container").fadeIn();
+        });
+
+        $(".fa-solid.fa-xmark").on("click", function () {
+            $(".container").fadeOut();
+        });
+
+        $("#date").datepicker({
+            dateFormat: "dd-mm-yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1950:2030"
+        });
+
+        $("#phone").mask("(999) 999-99-99");
+
+        $("#application-form").validate({
+            rules: {
+                name: { required: true, minlength: 4 },
+                email: { required: true, email: true },
+                phone: { required: true, minlength: 10, maxlength: 15 },
+                pozisyon: { required: true }
+            },
+            messages: {
+                name: { required: "Ad-Soyad alanı boş bırakılamaz.", minlength: "Adınız en az 4 karakter olmalıdır." },
+                email: { required: "E-posta alanı boş bırakılamaz.", email: "Geçerli bir e-posta adresi girin." },
+                phone: { required: "Telefon numarası alanı boş bırakılamaz.", minlength: "Telefon numarası en az 10 haneli olmalıdır.", maxlength: "Telefon numarası en fazla 15 haneli olabilir." },
+                pozisyon: { required: "Pozisyon alanı boş bırakılamaz." }
+            },
+            submitHandler: function (form) {
+                $("#success-message").fadeIn().delay(3000).fadeOut();
+                $(".container").delay(2000).fadeOut();
+                form.reset();
+            }
+        });
     });
 </script>
 
