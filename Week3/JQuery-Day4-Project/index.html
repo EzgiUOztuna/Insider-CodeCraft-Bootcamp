@@ -21,7 +21,6 @@
                 setEvents();
             };
 
-
             const buildHtml = () => {
                 const html = `
                 <h1>Ürün Listesi</h1>
@@ -38,7 +37,6 @@
             `;
                 $("body").append(html);
             };
-
 
             const buildCss = () => {
                 $('<style>').html(`
@@ -110,11 +108,8 @@
                         padding: 5px 10px;
                         cursor: pointer;
                     }
-
-
-                    `).appendTo('head');
+                `).appendTo('head');
             };
-
 
             const setEvents = () => {
                 $("#fetch-products").on("click", function () {
@@ -152,12 +147,12 @@
 
                     products.forEach(function (product) {
                         const card = `
-                            <div class="product">
+                            <div class="product" data-id="${product.id}">
                                 <h2>${product.name}</h2>
                                 <img src="${product.image}" alt="${product.name}">
                                 <p>Fiyat: ${product.price} TL</p>
                                 <a href="${product.link}" target="_blank" class="popup">Ürünü İncele</a>
-                                <button id="product-details">Detayları İncele</button>
+                                <button class="product-details">Detayları İncele</button>
                                 <p class="detail-container" id="detail-container">${product.detail}</p>
                             </div>
                             `;
@@ -165,18 +160,33 @@
                     });
                 }
 
-                $(document).on("click", "#product-details", function () {
-                    $(this).siblings(".detail-container").slideToggle(1000);
+                // Yeni Event: Detaylar butonuna tıklandığında popup aç
+                $(document).on("click", ".product-details", function () {
+                    const productId = $(this).closest(".product").data("id");
+                    showProductDetails(productId);
                 });
 
-                $(document).on("click", "#product-details", function () {
-                    $(this).text($(this).text() === "Detayları Gizle" ? "Detayları İncele" : "Detayları Gizle");
+                // Popup içinde ürün detaylarını göster
+                function showProductDetails(id) {
+                    $.ajax({
+                        url: "product.json",
+                        method: "GET",
+                        dataType: "json",
+                        success: function (products) {
+                            const product = products.find(p => p.id === id);
+                            if (product) {
+                                $("#popup-title").text(product.name);
+                                $("#popup-detail").text(product.detail);
+                                $("#popup-container").fadeIn();
+                            }
+                        }
+                    });
+                }
+
+                // Kapatma butonuna tıklanınca popup'ı kapat
+                $(document).on("click", "#close-popup", function () {
+                    $("#popup-container").fadeOut();
                 });
-
-
-
-
-
             };
             init();
         });
