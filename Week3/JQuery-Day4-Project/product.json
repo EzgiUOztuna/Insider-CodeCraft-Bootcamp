@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Ürün 1",
         "image": "https://picsum.photos/200/300?random=1",
         "price": 100,
@@ -7,6 +8,7 @@
         "detail": "Bu, Ürün 1'in detaylarıdır."
     },
     {
+        "id": 2,
         "name": "Ürün 2",
         "image": "https://picsum.photos/200/300?random=2",
         "price": 200,
@@ -14,6 +16,7 @@
         "detail": "Bu, Ürün 2'nin detaylarıdır."
     },
     {
+        "id": 3,
         "name": "Ürün 3",
         "image": "https://picsum.photos/200/300?random=3",
         "price": 300,
@@ -21,6 +24,7 @@
         "detail": "Bu, Ürün 3'ün detaylarıdır."
     },
     {
+        "id": 4,
         "name": "Ürün 4",
         "image": "https://picsum.photos/200/300?random=4",
         "price": 400,
@@ -28,6 +32,7 @@
         "detail": "Bu, Ürün 4'ün detaylarıdır."
     },
     {
+        "id": 5,
         "name": "Ürün 5",
         "image": "https://picsum.photos/200/300?random=5",
         "price": 500,

@@ -27,7 +27,14 @@
                 <h1>Ürün Listesi</h1>
                 <button id="fetch-products">Ürünleri Listele</button>
                 <div class="container" id="product-container"></div>
-    
+
+                <div id="popup-container" style="display: none;">
+                    <div id="popup">
+                        <button id="close-popup">Kapat</button>
+                        <h2 id="popup-title"></h2>
+                        <p id="popup-detail"></p>
+                    </div>
+                </div>
             `;
                 $("body").append(html);
             };
@@ -75,6 +82,36 @@
                         width: 300px;
                     }
 
+                    #popup-container {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1000;
+                    }
+
+                    #popup {
+                        background-color: white;
+                        padding: 20px;
+                        border-radius: 5px;
+                        width: 300px;
+                        text-align: center;
+                    }
+
+                    #close-popup {
+                        background-color: red;
+                        color: white;
+                        border: none;
+                        padding: 5px 10px;
+                        cursor: pointer;
+                    }
+
+
                     `).appendTo('head');
             };
 
@@ -82,22 +119,31 @@
             const setEvents = () => {
                 $("#fetch-products").on("click", function () {
                     let button = $(this);
-                    $.ajax({
-                        url: "product.json",
-                        method: "GET",
-                        dataType: "json",
-                        success: function (products) {
-                            displayProducts(products);
-                            button.animate({
-                                width: "300px",
-                                opacity: 0.5
-                            })
-                        },
-                        error: function () {
-                            alert("Ürünler yüklenirken hata oluştu.");
-                        }
-                    });
-                    button.siblings().slideToggle();
+                    let container = button.next(".container");
+
+                    if (container.is(":empty")) {
+                        $.ajax({
+                            url: "product.json",
+                            method: "GET",
+                            dataType: "json",
+                            success: function (products) {
+                                displayProducts(products);
+                                button.animate({
+                                    width: "300px",
+                                    opacity: 0.5
+                                })
+                            },
+                            error: function () {
+                                alert("Ürünler yüklenirken hata oluştu.");
+                            }
+                        });
+                    } else {
+                        container.slideToggle();
+                        button.animate({
+                            width: "150px",
+                            opacity: 1
+                        })
+                    }
                 });
 
                 function displayProducts(products) {
@@ -110,7 +156,7 @@
                                 <h2>${product.name}</h2>
                                 <img src="${product.image}" alt="${product.name}">
                                 <p>Fiyat: ${product.price} TL</p>
-                                <a href="${product.link}" target="_blank">Ürünü İncele</a>
+                                <a href="${product.link}" target="_blank" class="popup">Ürünü İncele</a>
                                 <button id="product-details">Detayları İncele</button>
                                 <p class="detail-container" id="detail-container">${product.detail}</p>
                             </div>
@@ -122,6 +168,11 @@
                 $(document).on("click", "#product-details", function () {
                     $(this).siblings(".detail-container").slideToggle(1000);
                 });
+
+                $(document).on("click", "#product-details", function () {
+                    $(this).text($(this).text() === "Detayları Gizle" ? "Detayları İncele" : "Detayları Gizle");
+                });
+
 
 
 
