@@ -51,8 +51,14 @@ function displayUsers() {
                 <h3>${user.name}</h3>
                 <p>${user.email}</p>
                 <p>${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
+                <button>Sil</button>
             `;
             container.appendChild(userElement);
+            userElement.querySelector('button').addEventListener('click', () => {
+                container.removeChild(userElement);
+                const updatedUsers = users.filter(u => u.id !== user.id);
+                saveToLocalStorage(updatedUsers);
+            });
         });
     }
 }
