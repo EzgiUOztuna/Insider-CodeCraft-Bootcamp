@@ -3,7 +3,7 @@ const container = document.querySelector('.ins-api-users');
 // Fetch API call
 function fetchUsers() {  //Promise oluşturdum.
     return new Promise((resolve, reject) => {
-        fetch('https://jsonplaceholder.typicode.com/users ')
+        fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(data => resolve(data))
             .catch(error => reject(error));
@@ -63,3 +63,20 @@ function displayUsers() {
     }
 }
 displayUsers();
+
+
+//CSS
+const style = document.createElement('style');
+style.innerHTML = `
+    .ins-api-users {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .user {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+`;
+document.head.appendChild(style);
