@@ -15,7 +15,7 @@ fetchUsers() //Promise'i kullanarak veriyi yönettim.
     .catch(error => console.error('Hata:', error)); // Hata yakala
 
 
-//LocalStorage'a veri kaydetme
+// LocalStorage'a veri kaydetme
 function saveToLocalStorage(users) {
     const data = { users, timestamp: new Date().getTime() };
     localStorage.setItem('users', JSON.stringify(data));
@@ -33,3 +33,27 @@ function getFromLocalStorage() {
     }
     return null;
 }
+
+// Fetch'den alınan verileri localStorage'a kaydetme
+fetchUsers()
+    .then(users => saveToLocalStorage(users))
+    .catch(error => console.error('Hata:', error));
+
+
+// LocalStorage'dan gelen verileri container'a ekle
+function displayUsers() {
+    const users = getFromLocalStorage();
+    if (users) {
+        users.forEach(user => {
+            const userElement = document.createElement('div');
+            userElement.classList.add('user');
+            userElement.innerHTML = `
+                <h3>${user.name}</h3>
+                <p>${user.email}</p>
+                <p>${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
+            `;
+            container.appendChild(userElement);
+        });
+    }
+}
+displayUsers();
