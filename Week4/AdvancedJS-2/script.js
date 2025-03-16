@@ -4,6 +4,7 @@
 const appendLocation = document.querySelector('.container');
 const buttonContainer = document.querySelector('.button-container');
 
+//////////////////////////////////////////////////////////////////
 async function fetchAndDisplayUsers() {
     try {
         const users = await fetchUsers();
@@ -20,6 +21,7 @@ function fetchUsers() {
 }
 
 const fetchedUser = fetchAndDisplayUsers();
+//////////////////////////////////////////////////////////////////
 
 //localStorage’da expire süresini farklı bir storage’da tutmayalım.
 const myLocalStorage = (() => {
