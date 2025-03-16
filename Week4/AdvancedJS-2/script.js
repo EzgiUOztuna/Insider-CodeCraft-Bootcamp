@@ -4,23 +4,22 @@
 const appendLocation = document.querySelector('.container');
 const buttonContainer = document.querySelector('.button-container');
 
-// Fetch API call
-function fetchUsers() {
-    return new Promise((resolve, reject) => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(data => resolve(data))
-            .catch(error => reject(error));
-    })
+async function fetchAndDisplayUsers() {
+    try {
+        const users = await fetchUsers();
+        myLocalStorage.setValue("users", users);
+        displayUsers();
+    } catch (error) {
+        console.error('Hata:', error);
+    }
 }
 
-const fetchedUser = fetchUsers()
-    .then(users => {
-        myLocalStorage.setValue("users", users, 60000);
-        displayUsers();
-    })
-    .catch(error => console.error('Hata:', error));
+function fetchUsers() {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json());
+}
 
+const fetchedUser = fetchAndDisplayUsers();
 
 //localStorage’da expire süresini farklı bir storage’da tutmayalım.
 const myLocalStorage = (() => {
@@ -74,7 +73,7 @@ function displayUsers() {
                 userElement.remove();
 
                 const updatedUsers = users.filter(u => u.id !== user.id);
-                myLocalStorage.setValue("users", updatedUsers, 60000);
+                myLocalStorage.setValue("users", updatedUsers);
 
                 if (updatedUsers.length === 0) {
                     showReloadButton();
@@ -99,13 +98,7 @@ function showReloadButton() {
             // Butonu devre dışı bırak
             reloadButton.disabled = true;
 
-            // Verileri tekrar çekme işlemi
-            fetchUsers()
-                .then(users => {
-                    myLocalStorage.setValue("users", users, 60000);
-                    displayUsers();
-                })
-                .catch(error => console.error('Hata:', error));
+            fetchAndDisplayUsers();
         });
     } else {
         console.log('Buton zaten kullanıldı.');
