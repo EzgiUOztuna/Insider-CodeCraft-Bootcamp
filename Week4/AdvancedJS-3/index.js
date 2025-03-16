@@ -18,7 +18,7 @@ class ShoppingCart {
     addItem(productId, quantity = 1) {
         try {
             const product = products.find(p => p.id === productId);
-
+            //debugger;
             if (!product) {
                 throw new Error('Ürün bulunamadı!');
             }
@@ -76,7 +76,7 @@ class ShoppingCart {
 
     calculateTotal() {
         this.total = this.items.reduce((sum, item) => {
-            return sum + item.price; // quantity çarpımı unutuldu
+            return sum + item.price * item.quantity; // quantity çarpımı unutuldu
         }, 0);
 
         if (this.discountApplied && this.total > 0) {
