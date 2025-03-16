@@ -18,12 +18,14 @@ class ShoppingCart {
     addItem(productId, quantity = 1) {
         try {
             const product = products.find(p => p.id === productId);
-            //debugger;
+            //📌debugger;
+            //📌console.log('Ürün:', product); 
+            //📌console.log('Sepet eklenmek istenen miktar:', quantity);
             if (!product) {
                 throw new Error('Ürün bulunamadı!');
             }
 
-            if (product.stock <= quantity) { // < yerine <= kullanıldı
+            if (product.stock <= quantity) {
                 throw new Error('Yetersiz stok!');
             }
 
@@ -39,6 +41,10 @@ class ShoppingCart {
                     quantity
                 });
             }
+
+            //‼️Stok güncellenmesi burada yapılmalı
+            product.stock -= quantity;
+            //📌console.log(`Yeni stok miktarı: ${product.stock}`);
 
             this.calculateTotal();
             this.updateUI();
@@ -61,7 +67,7 @@ class ShoppingCart {
             const product = products.find(p => p.id === productId);
 
             if (product) {
-                product.stock += 1; // item.quantity yerine sabit değer
+                product.stock += 1;
             }
 
             this.items.splice(itemIndex, 1);
@@ -75,8 +81,9 @@ class ShoppingCart {
     }
 
     calculateTotal() {
+        //📌debugger;
         this.total = this.items.reduce((sum, item) => {
-            return sum + item.price * item.quantity; // quantity çarpımı unutuldu
+            return sum + item.price * item.quantity; //‼️quantity çarpımı eklendi.
         }, 0);
 
         if (this.discountApplied && this.total > 0) {

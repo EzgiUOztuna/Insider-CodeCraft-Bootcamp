@@ -1,14 +1,13 @@
-📍Problemler
-1- Stoktan düşmüyor 
-2- Stok sayısını geçmesine rağmen sepete eklemeye devam ediyor.
-3- Toplam fiyatı doğru hesaplamıyor.
+⚠️Problemler
+1- Stoktan düşmüyor ve Stok sayısını geçmesine rağmen sepete eklemeye devam ediyor.
+2- Toplam fiyatı doğru hesaplamıyor.
 
 
 ✅Çözümler
-1- 
+1- addItem metodunda quantity değer hep sabit 1 olarak kalıyor. Bu da stok güncellemes,nin doğru yerde yapılmamasından kaynaklanıyordu. addItem'a "product.stock -= quantity;" satırı eklenerek düzeltildi. 
 
 
-3- 👇🏻
+2- 👇🏻
 calculateTotal() {
         this.total = this.items.reduce((sum, item) => {
             return sum + item.price * item.quantity; //📍"item.quantity" çarpımı eklendi.
